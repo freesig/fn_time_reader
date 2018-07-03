@@ -1,0 +1,12 @@
+[package]
+name = "fn_time_reader"
+version = "0.1.0"
+authors = ["Tom Gowan <s3549186@student.rmit.edu.au>"]
+
+[dependencies]
+fn_time = { path = "/Users/tomgowan/rust/fn_time" } 
+cpython = "0.2.0"
+serde = "1.0.68"
+serde_json = "1.0.22"
+serde_derive = "1.0.68"
+clap = "2.32.0"
