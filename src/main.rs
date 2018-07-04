@@ -5,7 +5,7 @@ extern crate clap;
 
 mod plotting;
 
-use ft::LineTiming;
+use ft::StreamData;
 use std::path::PathBuf;
 use std::ops::Range;
 use std::fs::File;
@@ -18,8 +18,8 @@ pub fn display(path: PathBuf, amount: Range<usize>) -> std::io::Result<()> {
     Ok(())
 }
 
-fn read_json(ref input: File, amount: Range<usize>) -> Vec<LineTiming> {
-    let mut stream = serde_json::Deserializer::from_reader(input).into_iter::<LineTiming>();
+fn read_json(ref input: File, amount: Range<usize>) -> Vec<StreamData> {
+    let mut stream = serde_json::Deserializer::from_reader(input).into_iter::<StreamData>();
     stream.nth(amount.start);
     stream.take(amount.end - amount.start).map(|v| v.unwrap()).collect()
 }
